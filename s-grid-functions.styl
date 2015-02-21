@@ -1,0 +1,37 @@
+// rem calculate
+
+rem-calc(value)
+    u = unit(value)
+    if u is 'px'
+        return unit(value / base-font-size, 'rem')
+    else
+        return unit(value, u)
+
+// cell gutters
+
+cell-gutter-calc(gut = gutter)
+    if gut is not 0
+        margin: (gut / 2)
+
+// grid helpers classes
+
+cols(i, cols, gut)
+    flex-basis: s('calc(100% * %s - %s)', i / cols, rem-calc(gut))
+    min-width: s('calc(100% * %s - %s)', i / cols, rem-calc(gut))
+    max-width: s('calc(100% * %s - %s)', i / cols, rem-calc(gut))
+
+grid-cell-classes-generator(cols = columns, gut = gutter, cellClass = cellClassName)
+    for key, value in breakpoints
+        @media screen and (min-width: rem-calc(value))
+            for i in range(1, cols, 1)
+                .{cellClass}-{key}-{i}
+                    cols(i, cols, gut)
+                .{cellClass}-offset-{key}-{i}
+                    margin-left: s('calc(100% * %s + (%s / 2))', i / cols, rem-calc(gut))
+
+grid-classes-generator(cols = columns, gut = gutter, gridClass = gridClassName, cellClass = cellClassName)
+    for key, value in breakpoints
+        @media screen and (min-width: rem-calc(value))
+            for i in range(1, cols, 1)
+                .{gridClass}-{key}-{i} > [class^={cellClass}]
+                    cols(i, cols, gut)

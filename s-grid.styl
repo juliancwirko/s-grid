@@ -1,0 +1,58 @@
+// general styles
+
+*
+    box-sizing border-box
+    margin 0
+    padding 0
+
+
+// grid wrapper styles
+
+.{gridClassName}
+    display flex
+    flex-wrap wrap
+
+grid-classes-generator()
+
+.{gridClassName}-top
+    @extend .{gridClassName}
+    align-items flex-start
+
+.{gridClassName}-bottom
+    @extend .{gridClassName}
+    align-items flex-end
+
+.{gridClassName}-center
+    @extend .{gridClassName}
+    align-items center
+
+.{gridClassName}-stretch
+    @extend .{gridClassName}
+    align-items stretch
+
+.{gridClassName}-justify-center
+    justify-content center
+
+.{gridClassName}-flex-cells
+    > .{cellClassName}
+        display flex
+
+// cell styles
+
+.{cellClassName}
+    flex 1
+    cell-gutter-calc()
+
+grid-cell-classes-generator()
+
+.{cellClassName}-top
+    @extend .{cellClassName}
+    align-self flex-start
+
+.{cellClassName}-bottom
+    @extend .{cellClassName}
+    align-self flex-end
+
+.{cellClassName}-center
+    @extend .{cellClassName}
+    align-self center
