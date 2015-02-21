@@ -1,11 +1,11 @@
 {
     "name": "s-grid",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "description": "Flexbox grid system with Stylus",
     "main": "s-grid.js",
     "repository": {
         "type": "git",
-        "url": ""
+        "url": "https://github.com/juliancwirko/s-grid"
     },
     "keywords": [
         "flexbox",
@@ -17,7 +17,7 @@
     "author": "Julian Ćwirko",
     "license": "MIT",
     "bugs": {
-        "url": ""
+        "url": "https://github.com/juliancwirko/s-grid/issues"
     },
-    "homepage": ""
+    "homepage": "https://github.com/juliancwirko/s-grid"
 }

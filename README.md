@@ -1,6 +1,4 @@
-### Stylus Flexbox grid system
-
-- - -
+## Stylus Flexbox grid system
 
 Why it is cool:
 
@@ -9,11 +7,7 @@ Why it is cool:
 * Very light
 * You can integrate it with Stylus Autoprefixer and other plugins
 
-- - -
-
-### Instalation
-
-- - -
+## Instalation
 
 Install it:
 
@@ -29,15 +23,9 @@ Then in your main *.styl file import:
 @import 's-grid'
 ```
 
-- - -
+## Usage
 
-### Usage
-
-- - -
-
-#### You can use it like a block grid. For example:
-
-- - -
+### You can use it like a block grid. For example:
 
 ```
 <div class="s-grid-top s-grid-sm-12 s-grid-md-6 s-grid-lg-4 s-grid-xlg-3 s-grid-xxlg-2">
@@ -67,22 +55,18 @@ Then in your main *.styl file import:
     </div>
 </div>
 ```
-##### You can align all cells vertically by using:
+#### You can align all cells vertically by using:
 
 * ````s-grid-top````
 * ````s-grid-center````
 * ````s-grid-bottom````
 * ````s-grid-stretch````
 
-##### You can also add:
+#### You can also add:
 
 * ````s-grid-justify-center```` - centering all columns horizontally
 
-- - -
-
-#### If you want different cells sizes You can use it like for example:
-
-- - -
+### If you want different cells sizes You can use it like for example:
 
 ```
 <div class="s-grid-top s-grid-justify-center">
@@ -104,18 +88,14 @@ Then in your main *.styl file import:
 </div>
 ```
 
-##### You can also use offsets here, just add classes like:
+#### You can also use offsets here, just add classes like:
 
 * ````s-grid-cell-offset-sm-2````
 * ````s-grid-cell-offset-lg-3````
 * ````s-grid-cell-offset-xxlg-6````
 * ..etc
 
-- - -
-
-#### Nested grids
-
-- - -
+### Nested grids
 
 You should be able to use nested grids. Example:
 
@@ -137,11 +117,7 @@ You should be able to use nested grids. Example:
 </div>
 ```
 
-- - -
-
-#### Overwrite settings
-
-- - -
+### Overwrite settings
 
 You can overwrite settings, just place your settings after ````s-grid-settings```` import. Do something like this:
 
@@ -170,11 +146,7 @@ breakpoints = {                // media queries breakpoints
 // my app styles here
 ```
 
-- - -
-
-#### So many ugly classes..
-
-- - -
+### So many ugly classes..
 
 You can change the names of main classes. (read above).
 But you can also extend custom classes and use ````cols()```` function to create your custom styles.
@@ -194,11 +166,7 @@ section
 
 You will have clean aside (4cols) and main (8cols) in 12 (default) columns grid;
 
-- - -
-
-#### Inspired by:
-
-- - -
+### Inspired by:
 
 * Cory Simmons: (Creator of Jeet grid system and many other grid tools) [https://github.com/corysimmons](https://github.com/corysimmons)
 * Philip Walton (Solved by Flexbox): [http://philipwalton.github.io/solved-by-flexbox/demos/grids/](http://philipwalton.github.io/solved-by-flexbox/demos/grids/)
