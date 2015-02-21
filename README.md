@@ -6,6 +6,8 @@ Why it is cool:
 * Helper grid classes. You can also create your own or just use Stylus functions to create clean styles
 * Very light
 * You can integrate it with Stylus Autoprefixer and other plugins
+* It uses css calc() [http://caniuse.com/#search=calc](http://caniuse.com/#search=calc)
+* It uses css Flexbox [http://caniuse.com/#search=flexbox](http://caniuse.com/#search=flexbox)
 
 ## Instalation
 
@@ -24,6 +26,9 @@ Then in your main *.styl file import:
 ```
 
 ## Usage
+
+You should use it with Autoprefixer [https://github.com/jenius/autoprefixer-stylus](https://github.com/jenius/autoprefixer-stylus)
+Package for Meteor.js is bundled with it.
 
 ### You can use it like a block grid. For example:
 
@@ -146,6 +151,39 @@ breakpoints = {                // media queries breakpoints
 // my app styles here
 ```
 
+### Cells reordering
+
+You can use standard Flexbox order features. Example:
+
+stylus:
+```
+.item
+    order 1
+
+.my-special-item
+    order 0
+```
+
+html:
+```
+<div class="s-grid-top s-grid-justify-center">
+    <div class="s-grid-cell s-grid-cell-sm-3 item">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, doloribus!
+    </div>
+    <div class="s-grid-cell s-grid-cell-sm-3 item">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae!
+    </div>
+    <div class="s-grid-cell s-grid-cell-sm-3 my-special-item">
+        It should be first!
+    </div>
+    <div class="s-grid-cell s-grid-cell-sm-3 item">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, repellendus!
+    </div>
+</div>
+```
+
+So ````my-special-item```` element should be first now.
+
 ### So many ugly classes..
 
 You can change the names of main classes. (read above).
@@ -172,3 +210,11 @@ You will have clean aside (4cols) and main (8cols) in 12 (default) columns grid;
 * Philip Walton (Solved by Flexbox): [http://philipwalton.github.io/solved-by-flexbox/demos/grids/](http://philipwalton.github.io/solved-by-flexbox/demos/grids/)
 * CSS tricks: [http://css-tricks.com/snippets/css/a-guide-to-flexbox/](http://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 * Foundation for Apps grid [http://foundation.zurb.com/apps/docs/#!/grid](http://foundation.zurb.com/apps/docs/#!/grid)
+
+### TODO
+
+* testing in real projects ..
+
+### License
+
+MIT
