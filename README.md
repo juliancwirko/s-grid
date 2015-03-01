@@ -303,20 +303,6 @@ There is a default test config with jQuery UI Sortable and RubaXa Sortable here:
 
 It definately needs more tests. I want to play with masonry layouts too. Based on Flexbox and also in cooperation with other masonry like js plugins.
 
-```javascript
-Template.test1.rendered = function () {
-    this.$(".grid").sortable({
-        items: "> .item",
-        cursor: "move"
-    });
-};
-
-Template.test2.rendered = function () {
-    var el = this.find('#rubaxaSortable');
-    var sortable = Sortable.create(el);
-};
-```
-
 ### Inspired by:
 
 * Cory Simmons: (Creator of Jeet grid system and many other grid tools) [https://github.com/corysimmons](https://github.com/corysimmons)
