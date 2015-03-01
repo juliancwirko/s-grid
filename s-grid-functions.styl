@@ -13,12 +13,19 @@ cell-gutter-calc(gut = gutter)
     if gut is not 0
         margin: (gut / 2)
 
-// grid helpers classes
+// mixin functions
+
+grid()
+    @extend .{gridClassName}
+grid-cell()
+    @extend .{cellClassName}
 
 cols(i, cols, gut)
     flex-basis: s('calc(100% * %s - %s)', i / cols, rem-calc(gut))
     min-width: s('calc(100% * %s - %s)', i / cols, rem-calc(gut))
     max-width: s('calc(100% * %s - %s)', i / cols, rem-calc(gut))
+
+// grid helpers classes
 
 grid-cell-classes-generator(cols = columns, gut = gutter, cellClass = cellClassName)
     for key, value in breakpoints

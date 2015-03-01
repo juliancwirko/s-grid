@@ -122,6 +122,82 @@ You should be able to use nested grids. Example:
 </div>
 ```
 
+### Grid direction:
+
+#### You can change direction of the grid cells. To do so, just add one more class:
+
+* ````s-grid-column```` (from top to bottom)
+* ````s-grid-column-reverse```` (from bottom to top)
+* ````s-grid-row```` (from left to right - default)
+* ````s-grid-row-reverse```` (from right to left)
+
+**If you use column direction (top to bottom or bottom to top) you can control your main s-grid container height. Width of the container should be dynamic or you can set overflow-x: auto on it.**
+
+&nbsp;
+
+#### Grid direction example 1:
+&nbsp;
+```
+<div style="max-height: 400px; overflow-x: auto;" class="s-grid-top s-grid-column s-grid-sm-12 s-grid-md-6 s-grid-lg-4 s-grid-xlg-3 s-grid-xxlg-2">
+    <div class="s-grid-cell">
+        1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, doloribus!
+    </div>
+    <div class="s-grid-cell">
+        2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid quae sint sapiente distinctio error molestias officiis tenetur porro perferendis doloribus!
+    </div>
+    <div class="s-grid-cell">
+        3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis, perspiciatis!
+    </div>
+    <div class="s-grid-cell">
+        4 Lorem ipsum dolor sit.
+    </div>
+    <div class="s-grid-cell">
+        5 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, architecto.
+    </div>
+    <div class="s-grid-cell">
+        6 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci minus laboriosam nisi vero, est dignissimos.
+    </div>
+    <div class="s-grid-cell">
+        7 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, repellendus!
+    </div>
+    <div class="s-grid-cell">
+        8 Lorem ipsum dolor sit amet.
+    </div>
+</div>
+```
+&nbsp;
+
+#### Grid direction example 2:
+&nbsp;
+```
+<div class="s-grid-top s-grid-row-reverse s-grid-sm-12 s-grid-md-6 s-grid-lg-4 s-grid-xlg-3 s-grid-xxlg-2">
+    <div class="s-grid-cell">
+        1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, doloribus!
+    </div>
+    <div class="s-grid-cell">
+        2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid quae sint sapiente distinctio error molestias officiis tenetur porro perferendis doloribus!
+    </div>
+    <div class="s-grid-cell">
+        3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis, perspiciatis!
+    </div>
+    <div class="s-grid-cell">
+        4 Lorem ipsum dolor sit.
+    </div>
+    <div class="s-grid-cell">
+        5 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, architecto.
+    </div>
+    <div class="s-grid-cell">
+        6 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci minus laboriosam nisi vero, est dignissimos.
+    </div>
+    <div class="s-grid-cell">
+        7 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, repellendus!
+    </div>
+    <div class="s-grid-cell">
+        8 Lorem ipsum dolor sit amet.
+    </div>
+</div>
+```
+
 ### Overwrite settings
 
 You can overwrite settings, just place your settings after ````s-grid-settings```` import. Do something like this:
@@ -186,23 +262,60 @@ So ````my-special-item```` element should be first now.
 
 ### So many ugly classes..
 
+Yes I know :) It could be simpler, but sometimes it is good to have namespace.
 You can change the names of main classes. (read above).
-But you can also extend custom classes and use ````cols()```` function to create your custom styles.
+You can also extend custom classes and use ````cols()```` function to create your custom styles. (Semantic approach)
 
 ```
 section
-    @extend .{gridClassName}
+    grid()
     aside, main
-        @extend .{cellClassName}
+        grid-cell()
         cols(columns, columns, gutter)
     @media screen and (min-width: rem-calc(breakpoints[md]))
         aside
-            cols(4, columns, gutter)
+            cols(columns / 3, columns, gutter)
         main
-            cols(8, columns, gutter)
+            cols((columns / 3) * 2, columns, gutter)
 ```
 
-You will have clean aside (4cols) and main (8cols) in 12 (default) columns grid;
+```html
+<section>
+    <aside>
+        Lorem ipsum dolor sit amet.
+    </aside>
+    <main>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum enim perferendis aspernatur neque, repellat ducimus laborum iure, eos inventore omnis vitae provident mollitia quisquam quibusdam! Eveniet earum nostrum, adipisci. Veritatis aliquid cum maxime fugit perspiciatis maiores, at doloribus? Tempore quisquam cum officia. Similique, itaque earum officia, minus animi at harum porro placeat aliquam ducimus dolor, quia eius accusamus doloremque odit?
+    </main>
+</section>
+```
+
+You will have clean aside (4cols) and main (8cols) in 12 (default) columns grid.
+Go and see which classes you can extend: [https://github.com/juliancwirko/s-grid/blob/master/s-grid.styl](https://github.com/juliancwirko/s-grid/blob/master/s-grid.styl)
+
+&nbsp;
+
+### Sortable (drag and drop) js plugins integration
+
+There is a default test config with jQuery UI Sortable and RubaXa Sortable here:
+
+* [sortable-test.s-grid.meteor.com](http://sortable-test.s-grid.meteor.com/)
+
+It definately needs more tests. I want to play with masonry layouts too. Based on Flexbox and also in cooperation with other masonry like js plugins.
+
+```javascript
+Template.test1.rendered = function () {
+    this.$(".grid").sortable({
+        items: "> .item",
+        cursor: "move"
+    });
+};
+
+Template.test2.rendered = function () {
+    var el = this.find('#rubaxaSortable');
+    var sortable = Sortable.create(el);
+};
+```
 
 ### Inspired by:
 
