@@ -3,6 +3,7 @@
 Why it is cool:
 
 * Meteor.js integration (with Autoprefixer and Rupture on board) [https://atmospherejs.com/juliancwirko/s-grid](https://atmospherejs.com/juliancwirko/s-grid)
+* Gruntjs integration (with autoprefixer and many more useful Grunt tasks like wiredep, usemin, livereload) [https://github.com/juliancwirko/s-grid-grunt](https://github.com/juliancwirko/s-grid-grunt)
 * Helper grid classes. You can also create your own or just use Stylus functions to create clean styles
 * Very light
 * You can integrate it with Stylus Autoprefixer and other plugins
