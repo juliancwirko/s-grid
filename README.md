@@ -271,7 +271,6 @@ You can also extend custom classes and use ````cols()```` function to create you
 section
     grid()
     aside, main
-        grid-cell()
         cols(columns, columns, gutter)
     @media screen and (min-width: rem-calc(breakpoints[md]))
         aside

@@ -5,7 +5,6 @@
     margin 0
     padding 0
 
-
 // grid wrapper styles
 
 .{gridClassName}
@@ -54,19 +53,13 @@ grid-classes-generator()
 
 // cell styles
 
-.{cellClassName}
-    cell-gutter-calc()
-
 grid-cell-classes-generator()
 
 .{cellClassName}-top
-    @extend .{cellClassName}
     align-self flex-start
 
 .{cellClassName}-bottom
-    @extend .{cellClassName}
     align-self flex-end
 
 .{cellClassName}-center
-    @extend .{cellClassName}
     align-self center

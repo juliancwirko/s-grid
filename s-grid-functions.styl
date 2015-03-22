@@ -1,29 +1,19 @@
 // rem calculate
 
 rem-calc(value)
-    u = unit(value)
-    if u is 'px'
-        return unit(value / base-font-size, 'rem')
-    else
-        return unit(value, u)
-
-// cell gutters
-
-cell-gutter-calc(gut = gutter)
-    if gut is not 0
-        margin: (gut / 2)
+    return unit(value / base-font-size, 'rem')
 
 // mixin functions
 
 grid()
     @extend .{gridClassName}
-grid-cell()
-    @extend .{cellClassName}
 
-cols(i, cols, gut)
+cols(i = 1, cols = columns, gut = gutter)
     flex-basis: s('calc(100% * %s - %s)', i / cols, rem-calc(gut))
     min-width: s('calc(100% * %s - %s)', i / cols, rem-calc(gut))
     max-width: s('calc(100% * %s - %s)', i / cols, rem-calc(gut))
+    if gut is not 0
+        margin: (gut / 2)
 
 // grid helpers classes
 
