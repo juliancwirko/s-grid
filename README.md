@@ -1,8 +1,14 @@
 ## Stylus Flexbox grid system
 
+<<<<<<< HEAD
 More complex documentation: [http://s-grid.meteor.com](http://s-grid.meteor.com)
 
 Why this grid:
+=======
+[Blog post about it](http://julian.io/s-grid-working-with-flexible-box-layouts/)
+
+Why it is cool:
+>>>>>>> 507b1d7d7448409b215cd6484de8ec0412201b5c
 
 * Meteor.js integration (with Autoprefixer and Rupture on board) [https://atmospherejs.com/juliancwirko/s-grid](https://atmospherejs.com/juliancwirko/s-grid)
 * Gruntjs integration (with autoprefixer and many more useful Grunt tasks like wiredep, usemin, livereload) [https://github.com/juliancwirko/s-grid-grunt](https://github.com/juliancwirko/s-grid-grunt)
