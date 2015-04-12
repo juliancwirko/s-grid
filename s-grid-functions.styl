@@ -1,34 +1,42 @@
-// rem calculate
-
 rem-calc(value)
     return unit(value / base-font-size, 'rem')
 
-// mixin functions
+grid(direction = 'row', cells-align = 'top', justify = '')
+    display flex
+    flex-wrap wrap
+    if cells-align is 'top'
+        align-items flex-start
+    if cells-align is 'bottom'
+        align-items flex-end
+    if cells-align is 'center'
+        align-items center
+    if cells-align is 'stretch'
+        align-items stretch
+    if direction is 'row'
+        flex-direction row
+    if direction is 'row-reverse'
+        flex-direction row-reverse
+    if direction is 'column'
+        flex-direction column
+    if direction is 'column-reverse'
+        flex-direction column-reverse
+    if justify is 'center'
+        justify-content center
+    if justify is 'start'
+        justify-content flex-start
+    if justify is 'end'
+        justify-content flex-end
 
-grid()
-    @extend .{gridClassName}
+cell(i = 1, cols = columns, align = '', g = gutter)
+    flex-basis: s('calc(100% * %s - %s)', i / cols, rem-calc(g))
+    if g is not 0
+        margin: rem-calc(g / 2)
+    if align is 'top'
+        align-self flex-start
+    if align is 'bottom'
+        align-self flex-end
+    if align is 'center'
+        align-self center
 
-cols(i = 1, cols = columns, gut = gutter)
-    flex-basis: s('calc(100% * %s - %s)', i / cols, rem-calc(gut))
-    min-width: s('calc(100% * %s - %s)', i / cols, rem-calc(gut))
-    max-width: s('calc(100% * %s - %s)', i / cols, rem-calc(gut))
-    if gut is not 0
-        margin: (gut / 2)
-
-// grid helpers classes
-
-grid-cell-classes-generator(cols = columns, gut = gutter, cellClass = cellClassName)
-    for key, value in breakpoints
-        @media screen and (min-width: rem-calc(value))
-            for i in range(1, cols, 1)
-                .{cellClass}-{key}-{i}
-                    cols(i, cols, gut)
-                .{cellClass}-offset-{key}-{i}
-                    margin-left: s('calc(100% * %s + (%s / 2))', i / cols, rem-calc(gut))
-
-grid-classes-generator(cols = columns, gut = gutter, gridClass = gridClassName, cellClass = cellClassName)
-    for key, value in breakpoints
-        @media screen and (min-width: rem-calc(value))
-            for i in range(1, cols, 1)
-                .{gridClass}-{key}-{i} > [class^={cellClass}]
-                    cols(i, cols, gut)
+cell-offset(i = 1, cols = columns, g = gutter)
+    margin-left: s('calc(100% * %s + (%s / 2))', i / cols, rem-calc(g)) !important

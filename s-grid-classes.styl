@@ -1,0 +1,66 @@
+
+grid-cell-classes-generator(cols = columns, g = gutter, cellClass = cellClassName)
+    for key, value in breakpoints
+        @media screen and (min-width: rem-calc(value))
+            for i in range(1, cols, 1)
+                .{cellClass}-{key}-{i}
+                    cell(i, cols, g)
+                .{cellClass}-offset-{key}-{i}
+                    cell-offset(i, cols, g)
+
+grid-classes-generator(cols = columns, g = gutter, gridClass = gridClassName, cellClass = cellClassName)
+    for key, value in breakpoints
+        @media screen and (min-width: rem-calc(value))
+            for i in range(1, cols, 1)
+                .{gridClass}-{key}-{i} > [class^={cellClass}]
+                    cell(i, cols, g)
+
+// grid classes
+
+.{gridClassName}-top
+    grid(cells-align: 'top')
+
+.{gridClassName}-bottom
+    grid(cells-align: 'bottom')
+
+.{gridClassName}-center
+    grid(cells-align: 'center')
+
+.{gridClassName}-stretch
+    grid(cells-align: 'stretch')
+
+.{gridClassName}-justify-center
+    justify-content center
+
+.{gridClassName}-justify-start
+    justify-content flex-start
+
+.{gridClassName}-justify-end
+    justify-content flex-end
+
+.{gridClassName}-row
+    grid(direction: 'row')
+
+.{gridClassName}-row-reverse
+    grid(direction: 'row-reverse')
+
+.{gridClassName}-column
+    grid(direction: 'column')
+
+.{gridClassName}-column-reverse
+    grid(direction: 'column-reverse')
+
+grid-classes-generator()
+
+// cell styles
+
+.{cellClassName}-top
+    align-self flex-start
+
+.{cellClassName}-bottom
+    align-self flex-end
+
+.{cellClassName}-center
+    align-self center
+
+grid-cell-classes-generator()

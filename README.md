@@ -1,6 +1,8 @@
 ## Stylus Flexbox grid system
 
-Why it is cool:
+More complex documentation: [http://s-grid.meteor.com](http://s-grid.meteor.com)
+
+Why this grid:
 
 * Meteor.js integration (with Autoprefixer and Rupture on board) [https://atmospherejs.com/juliancwirko/s-grid](https://atmospherejs.com/juliancwirko/s-grid)
 * Gruntjs integration (with autoprefixer and many more useful Grunt tasks like wiredep, usemin, livereload) [https://github.com/juliancwirko/s-grid-grunt](https://github.com/juliancwirko/s-grid-grunt)
@@ -23,7 +25,7 @@ Then in your main *.styl file import:
 ```
 @import 's-grid-settings'
 @import 's-grid-functions'
-@import 's-grid'
+@import 's-grid-classes'
 ```
 
 ## Usage
@@ -31,188 +33,169 @@ Then in your main *.styl file import:
 You should use it with Autoprefixer [https://github.com/jenius/autoprefixer-stylus](https://github.com/jenius/autoprefixer-stylus)
 Package for Meteor.js is bundled with it.
 
-### You can use it like a block grid. For example:
+### Version 1.0.0 breaking changes
 
-```
-<div class="s-grid-top s-grid-sm-12 s-grid-md-6 s-grid-lg-4 s-grid-xlg-3 s-grid-xxlg-2">
-    <div class="s-grid-cell">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, doloribus!
-    </div>
-    <div class="s-grid-cell">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae!
-    </div>
-    <div class="s-grid-cell">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto sed, rerum ratione at modi sunt!
-    </div>
-    <div class="s-grid-cell">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, repellendus!
-    </div>
-    <div class="s-grid-cell">
-        Lorem ipsum dolor sit amet.
-    </div>
-    <div class="s-grid-cell">
-        Lorem ipsum dolor sit amet.
-    </div>
-    <div class="s-grid-cell">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, repellendus!
-    </div>
-    <div class="s-grid-cell">
-        Lorem ipsum dolor sit amet.
-    </div>
-</div>
-```
-#### You can align all cells vertically by using:
+- cols() is now cell()
+- Grid helper classes is optional. You can import s-grid-classes.styl file if you need it.
+- Functions parameters order is changed. See below.. you can use named parameters too.
 
-* ````s-grid-top````
-* ````s-grid-center````
-* ````s-grid-bottom````
-* ````s-grid-stretch````
+### Simple examples
+(More complex documentation: [http://s-grid.meteor.com](http://s-grid.meteor.com))
 
-#### You can also add:
+#### With only functions
 
-* ````s-grid-justify-center```` - centering all columns horizontally
-
-### If you want different cells sizes You can use it like for example:
-
-```
-<div class="s-grid-top s-grid-justify-center">
-    <div class="s-grid-cell s-grid-cell-sm-12 s-grid-cell-md-12 s-grid-cell-lg-6">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, doloribus!
-    </div>
-    <div class="s-grid-cell s-grid-cell-sm-12 s-grid-cell-md-12 s-grid-cell-lg-6">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae!
-    </div>
-    <div class="s-grid-cell s-grid-cell-sm-12 s-grid-cell-md-6 s-grid-cell-lg-12">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto sed, rerum ratione at modi sunt!
-    </div>
-    <div class="s-grid-cell s-grid-cell-sm-6 s-grid-cell-md-6 s-grid-cell-lg-6">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, repellendus!
-    </div>
-    <div class="s-grid-cell s-grid-cell-sm-6 s-grid-cell-md-12 s-grid-cell-lg-6">
-        Lorem ipsum dolor sit amet.
-    </div>
-</div>
+**Stylus code**:
+```css
+section
+    grid()
+    div
+        padding rem-calc(15)
+        cell(1, 4)
+        &.other-cell
+            cell(2, 4, 'bottom')
+        &.different-cell
+            cell(1, 3, g: 30px)
 ```
 
-#### You can also use offsets here, just add classes like:
-
-* ````s-grid-cell-offset-sm-2````
-* ````s-grid-cell-offset-lg-3````
-* ````s-grid-cell-offset-xxlg-6````
-* ..etc
-
-### Nested grids
-
-You should be able to use nested grids. Example:
-
-```
-<div class="s-grid-top s-grid-sm-4 s-grid-justify-center">
-    <div class="s-grid-cell">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, doloribus!
-    </div>
-    <div class="s-grid-cell">
-        <div class="s-grid-top s-grid-sm-6 s-grid-justify-center">
-            <div class="s-grid-cell">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, dicta?
-            </div>
-            <div class="s-grid-cell">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea esse molestiae odit iusto at sapiente dicta reiciendis doloremque optio, atque!
-            </div>
-        </div>
-    </div>
-</div>
+**HTML code**:
+```html
+<section>
+    <div>Lorem ipsum</div>
+    <div>Lorem ipsum</div>
+    <div class="other-cell">Lorem ipsum</div>
+    <div>Lorem ipsum</div>
+    <div class="different-cell">Lorem ipsum</div>
+</section>
 ```
 
-### Grid direction:
+#### With only helper classes
 
-#### You can change direction of the grid cells. To do so, just add one more class:
-
-* ````s-grid-column```` (from top to bottom)
-* ````s-grid-column-reverse```` (from bottom to top)
-* ````s-grid-row```` (from left to right - default)
-* ````s-grid-row-reverse```` (from right to left)
-
-**If you use column direction (top to bottom or bottom to top) you can control your main s-grid container height. Width of the container should be dynamic or you can set overflow-x: auto on it.**
-
-&nbsp;
-
-#### Grid direction example 1:
-&nbsp;
+**HTML code**:
 ```
-<div style="max-height: 400px; overflow-x: auto;" class="s-grid-top s-grid-column s-grid-sm-12 s-grid-md-6 s-grid-lg-4 s-grid-xlg-3 s-grid-xxlg-2">
-    <div class="s-grid-cell">
-        1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, doloribus!
-    </div>
-    <div class="s-grid-cell">
-        2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid quae sint sapiente distinctio error molestias officiis tenetur porro perferendis doloribus!
-    </div>
-    <div class="s-grid-cell">
-        3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis, perspiciatis!
-    </div>
-    <div class="s-grid-cell">
-        4 Lorem ipsum dolor sit.
-    </div>
-    <div class="s-grid-cell">
-        5 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, architecto.
-    </div>
-    <div class="s-grid-cell">
-        6 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci minus laboriosam nisi vero, est dignissimos.
-    </div>
-    <div class="s-grid-cell">
-        7 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, repellendus!
-    </div>
-    <div class="s-grid-cell">
-        8 Lorem ipsum dolor sit amet.
-    </div>
-</div>
+<section class="s-grid-top">
+    <div class="s-grid-cell s-grid-cell-md-6">Lorem ipsum</div>
+    <div class="s-grid-cell s-grid-cell-md-6">Lorem ipsum</div>
+    <div class="s-grid-cell s-grid-cell-bottom s-grid-cell-md-12">Lorem ipsum</div>
+    <div class="s-grid-cell s-grid-cell-md-6">Lorem ipsum</div>
+    <div class="s-grid-cell s-grid-cell-center s-grid-cell-md-4 s-grid-cell-offset-md-4">Lorem ipsum</div>
+</section>
 ```
-&nbsp;
 
-#### Grid direction example 2:
-&nbsp;
-```
-<div class="s-grid-top s-grid-row-reverse s-grid-sm-12 s-grid-md-6 s-grid-lg-4 s-grid-xlg-3 s-grid-xxlg-2">
-    <div class="s-grid-cell">
-        1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, doloribus!
-    </div>
-    <div class="s-grid-cell">
-        2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid quae sint sapiente distinctio error molestias officiis tenetur porro perferendis doloribus!
-    </div>
-    <div class="s-grid-cell">
-        3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis, perspiciatis!
-    </div>
-    <div class="s-grid-cell">
-        4 Lorem ipsum dolor sit.
-    </div>
-    <div class="s-grid-cell">
-        5 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, architecto.
-    </div>
-    <div class="s-grid-cell">
-        6 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci minus laboriosam nisi vero, est dignissimos.
-    </div>
-    <div class="s-grid-cell">
-        7 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, repellendus!
-    </div>
-    <div class="s-grid-cell">
-        8 Lorem ipsum dolor sit amet.
-    </div>
-</div>
-```
+### S-Grid functions and classes
+(More complex documentation: [http://s-grid.meteor.com](http://s-grid.meteor.com))
+
+#### Functions
+
+- **rem-calc(value)** - calculates rem units.
+    - Usage example:
+        - `rem-calc(20)`
+        - `rem-calc(20px)`
+- **grid(direction = 'row', cells-align = 'top', justify = '')** Main grid function.
+    - Params:
+        - `direction`:
+            - `'row'` (default) - cells direction left to right
+            - `'row-reverse'` - cells direction right to left
+            - `'column'` - cells direction top to bottom
+            - `'column-reverse'` - cells direction bottom to top
+        - `cells-align` (works only with row and row-reverse directions)
+            - `'top'`
+            - `'bottom'`
+            - `'center'`
+            - `'stretch'`
+        - `justify`
+            - `'start'` - justify all content left or top
+            - `'end'` - justify all content right or bottom
+            - `'center'` - justify all content center
+    - Usage examples:
+        - `grid()`
+        - `grid('row')`
+        - `grid('row-reverse', 'bottom')`
+        - `grid(direction: 'column')`
+        - `grid(direction: 'column', justify: 'end')`
+- **cell(i = 1, cols = columns, align = '', g = gutter)**
+    - Params:
+        - `i / cols` - fraction
+        - `align`:
+            - `'top'`
+            - `bottom'`
+            - `'center'`
+        - `g` - gutter
+    - Usage examples:
+        - `cell(1, 2)`
+        - `cell(15, 45, 'top', 30px)`
+        - `cell(2, 3, g: 30)`
+- **cell-offset(i = 1, cols = columns, g = gutter)**
+    - Params:
+        - `i / cols` - fraction
+        - `g` - gutter
+    - Usage examples:
+        - `cell-offset(1, 6)`
+- **[Rupture](https://github.com/jenius/rupture) media queries**
+    - Usage examples:
+        - `+above(rem-calc(breakpoints[lg]))`
+        - `+below(rem-calc(768px))`
+        - `+below(768px)`
+
+#### Helper classes
+
+To use helper classes you need to import `s-grid-classes.styl` file. (Like shown above). You can change main classes name in settings. See how in 'Overwrite settings'.
+
+**Main grid classes**:
+
+- `.s-grid-top` - align cells top
+- `.s-grid-bottom` - align cells bottom
+- `.s-grid-center` - align cells center (middle)
+- `.s-grid-stretch` - stretch cells
+- `.s-grid-justify-center` - justify content center
+- `.s-grid-justify-start` - justify content top or left
+- `.s-grid-justify-end` - justify content bottom or right
+- `.s-grid-row` - cells direction left to right
+- `.s-grid-row-reverse` - cells direction right to left
+- `.s-grid-column` - cells direction top to bottom
+- `.s-grid-column-reverse` - cells direction bottom to top
+
+**Main cell classes**:
+
+- `.s-grid-cell-top` - single cell align top
+- `.s-grid-cell-center` - single cell align center (middle)
+- `.s-grid-cell-bottom` - single cell align bottom
+
+You can also use autogenerated grid helper classes like those from Bootstrap or Foundation. By default you have 12 column based grid. You can change it in settings. See how in 'Overwrite settings'.
+
+**S-Grid generated helper classes**:
+
+- **Pattern: .{gridClass}-{breakpoint-symbol}-{number-of-columns}** - use it on main grid container (block grid)
+    - Usage examples:
+        - `.s-grid-sm-6`
+        - `.s-grid-md-4`
+        - `.s-grid-lg-3`
+- **Pattern: .{cellClass}-{breakpoint-symbol}-{number-of-columns}** - use it on cell element (custom cell size)
+    - Usage examples:
+        - `.s-grid-cell-sm-12`
+        - `.s-grid-cell-xlg-3`
+        - `.s-grid-cell-md-6`
+- **Pattern: .{cellClass}-offset-{breakpoint-symbol}-{number-of-columns}** - use it on cell element (offset class)
+    - Usage examples:
+        - `.s-grid-cell-offset-sm-2`
+        - `.s-grid-cell-offset-lg-3`
 
 ### Overwrite settings
 
-You can overwrite settings, just place your settings after ````s-grid-settings```` import. Do something like this:
+You can overwrite the settings (from s-grid-settings.styl file), just place your settings after `s-grid-settings` import. Do something like this:
 
-```
+```bash
+
+// main s-grid settings file:
+
 @import 's-grid-settings'
 
 // my new settings goes here:
 
 base-font-size = 16            // base font size it is 16px by default it is used to calculate rem sizes
 gutter = 20px                  // gutters size
-columns = 12                   // how many columns you need in your grid
-gridClassName = 's-grid'       // main grid wraper class name
-cellClassName = 's-grid-cell'  // main grid cell class name
+columns = 12                   // how many columns you need in your grid (usage with helper classes)
+gridClassName = 's-grid'       // main grid wraper class name (usage with helper classes)
+cellClassName = 's-grid-cell'  // main grid cell class name (usage with helper classes)
 
 breakpoints = {                // media queries breakpoints
     sm: 0,
@@ -222,86 +205,17 @@ breakpoints = {                // media queries breakpoints
     xxlg: 1920px
 }
 
+// s-grid imports:
+
 @import 's-grid-functions'
-@import 's-grid'
+@import 's-grid-classes'
 
-// my app styles here
+// ...
+// my app styles here..
+// ...
 ```
-
-### Cells reordering
-
-You can use standard Flexbox order features. Example:
-
-stylus:
-```
-.item
-    order 1
-
-.my-special-item
-    order 0
-```
-
-html:
-```
-<div class="s-grid-top s-grid-justify-center">
-    <div class="s-grid-cell s-grid-cell-sm-3 item">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio, doloribus!
-    </div>
-    <div class="s-grid-cell s-grid-cell-sm-3 item">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae!
-    </div>
-    <div class="s-grid-cell s-grid-cell-sm-3 my-special-item">
-        It should be first!
-    </div>
-    <div class="s-grid-cell s-grid-cell-sm-3 item">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, repellendus!
-    </div>
-</div>
-```
-
-So ````my-special-item```` element should be first now.
-
-### So many ugly classes..
-
-Yes I know :) It could be simpler, but sometimes it is good to have namespace.
-You can change the names of main classes. (read above).
-You can also extend custom classes and use ````cols()```` function to create your custom styles. (Semantic approach)
-
-```
-section
-    grid()
-    aside, main
-        cols(columns, columns, gutter)
-    @media screen and (min-width: rem-calc(breakpoints[md]))
-        aside
-            cols(columns / 3, columns, gutter)
-        main
-            cols((columns / 3) * 2, columns, gutter)
-```
-
-```html
-<section>
-    <aside>
-        Lorem ipsum dolor sit amet.
-    </aside>
-    <main>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum enim perferendis aspernatur neque, repellat ducimus laborum iure, eos inventore omnis vitae provident mollitia quisquam quibusdam! Eveniet earum nostrum, adipisci. Veritatis aliquid cum maxime fugit perspiciatis maiores, at doloribus? Tempore quisquam cum officia. Similique, itaque earum officia, minus animi at harum porro placeat aliquam ducimus dolor, quia eius accusamus doloremque odit?
-    </main>
-</section>
-```
-
-You will have clean aside (4cols) and main (8cols) in 12 (default) columns grid.
-Go and see which classes you can extend: [https://github.com/juliancwirko/s-grid/blob/master/s-grid.styl](https://github.com/juliancwirko/s-grid/blob/master/s-grid.styl)
 
 &nbsp;
-
-### Sortable (drag and drop) js plugins integration
-
-There is a default test config with jQuery UI Sortable and RubaXa Sortable here:
-
-* [sortable-test.s-grid.meteor.com](http://sortable-test.s-grid.meteor.com/)
-
-It definately needs more tests. I want to play with masonry layouts too. Based on Flexbox and also in cooperation with other masonry like js plugins.
 
 ### Inspired by:
 
@@ -309,10 +223,6 @@ It definately needs more tests. I want to play with masonry layouts too. Based o
 * Philip Walton (Solved by Flexbox): [http://philipwalton.github.io/solved-by-flexbox/demos/grids/](http://philipwalton.github.io/solved-by-flexbox/demos/grids/)
 * CSS tricks: [http://css-tricks.com/snippets/css/a-guide-to-flexbox/](http://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 * Foundation for Apps grid [http://foundation.zurb.com/apps/docs/#!/grid](http://foundation.zurb.com/apps/docs/#!/grid)
-
-### TODO
-
-* testing in real projects ..
 
 ### License
 
