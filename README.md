@@ -228,3 +228,14 @@ breakpoints = {                // media queries breakpoints
 ### License
 
 MIT
+
+### Changelog
+
+#### v1.0.1
+- better rem-calc() function
+
+#### v1.0.0
+- refactor and api changes
+- cols() is now cell()
+- Grid helper classes is optional. You can import s-grid-classes.styl file if you need it.
+- Functions parameters order is changed. See below.. you can use named parameters too.

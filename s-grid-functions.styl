@@ -1,5 +1,10 @@
 rem-calc(value)
-    return unit(value / base-font-size, 'rem')
+    u = unit(value);
+    if (u is 'rem') {
+        return unit(value, u);
+    } else {
+        return unit(value / base-font-size, 'rem')
+    }
 
 grid(direction = 'row', cells-align = 'top', justify = '')
     display flex
