@@ -232,6 +232,11 @@ MIT
 
 ### Changelog
 
+#### v1.1.0
+- stack() function
+- center() function
+- rwd images in cells for FF fix
+
 #### v1.0.1
 - better rem-calc() function
 

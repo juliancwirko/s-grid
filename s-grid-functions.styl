@@ -34,6 +34,7 @@ grid(direction = 'row', cells-align = 'top', justify = '')
 
 cell(i = 1, cols = columns, align = '', g = gutter)
     flex-basis: s('calc(100% * %s - %s)', i / cols, rem-calc(g))
+    min-width 0 // FF adjustment fo rresponsive images
     if g is not 0
         margin: rem-calc(g / 2)
     if align is 'top'
@@ -45,3 +46,16 @@ cell(i = 1, cols = columns, align = '', g = gutter)
 
 cell-offset(i = 1, cols = columns, g = gutter)
     margin-left: s('calc(100% * %s + (%s / 2))', i / cols, rem-calc(g)) !important
+
+center(value)
+    margin-left auto
+    margin-right auto
+    width 100%
+    u = unit(value)
+    if (u is 'rem')
+        max-width unit(value, u)
+    else
+        max-width rem-calc(value)
+
+stack()
+    cell(1, 1)
