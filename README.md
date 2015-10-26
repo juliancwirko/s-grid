@@ -1,48 +1,27 @@
-## Stylus Flexbox grid system
+## sGrid - Flexbox Grid System for Stylus
+
+sGrid is a Flexbox grid system built with Stylus CSS preprocessor. It is prepared to use with helper classes, like Bootstrap or Foundation does it, but also in a more semantic way by using special Stylus functions.
+
+It has many integrations like Meteor, Grund and React.
 
 - More complex documentation: [http://stylusgrid.com](http://stylusgrid.com)
 - Blog post about it: [http://julian.io/s-grid-working-with-flexible-box-layouts/](http://julian.io/s-grid-working-with-flexible-box-layouts/)
 
-Why this grid:
-
-* Meteor.js integration (with Autoprefixer and Rupture on board) [https://atmospherejs.com/juliancwirko/s-grid](https://atmospherejs.com/juliancwirko/s-grid)
-* Gruntjs integration (with autoprefixer and many more useful Grunt tasks like wiredep, usemin, livereload) [https://github.com/juliancwirko/s-grid-grunt](https://github.com/juliancwirko/s-grid-grunt)
-* There is also React boilerplate with s-Grid [https://github.com/juliancwirko/react-boilerplate](https://github.com/juliancwirko/react-boilerplate)
-* Helper grid classes. You can also create your own or just use Stylus functions to create clean styles
-* Very light
-* You can integrate it with Stylus Autoprefixer and other plugins
-* It uses css calc() [http://caniuse.com/#search=calc](http://caniuse.com/#search=calc)
-* It uses css Flexbox [http://caniuse.com/#search=flexbox](http://caniuse.com/#search=flexbox)
-
 ## Instalation
 
-Install it:
-
-```
-$ npm install -g s-grid
-```
-
-Then in your main *.styl file import:
-
-```
-@import 's-grid-settings'
-@import 's-grid-functions'
-@import 's-grid-classes'
-```
+This is a standard Npm package so you can use it standalone, but you can also use it with boilerplates for Grunt and React. Also with Meteor.
 
 ## Usage
 
-You should use it with Autoprefixer [https://github.com/jenius/autoprefixer-stylus](https://github.com/jenius/autoprefixer-stylus)
-Package for Meteor.js is bundled with it.
+- [Npm](http://stylusgrid.com/npm.html)
+- [Meteor](http://stylusgrid.com/meteor.html)
+- [React Boilerplate](http://stylusgrid.com/react.html)
+- [Grunt Boilerplate](http://stylusgrid.com/grunt.html)
 
-### Version 1.0.0 breaking changes
-
-- cols() is now cell()
-- Grid helper classes is optional. You can import s-grid-classes.styl file if you need it.
-- Functions parameters order is changed. See below.. you can use named parameters too.
+You should use it with Autoprefixer [https://github.com/jenius/autoprefixer-stylus](https://github.com/jenius/autoprefixer-stylus) Package for Meteor.js is bundled with it. It is also configured in Grunt and React boilerplates.
 
 ### Simple examples
-(More complex documentation: [http://stylusgrid.com](http://stylusgrid.com))
+(More complex documentation: [http://stylusgrid.com/](http://stylusgrid.com))
 
 #### With only functions
 
@@ -133,6 +112,9 @@ breakpoints = {                // media queries breakpoints
 MIT
 
 ### Changelog
+
+#### v1.1.1
+- docs update
 
 #### v1.1.0
 - stack() function

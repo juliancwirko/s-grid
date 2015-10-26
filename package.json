@@ -1,7 +1,7 @@
 {
     "name": "s-grid",
-    "version": "1.1.0",
-    "description": "Flexbox grid system with Stylus",
+    "version": "1.1.1",
+    "description": "Flexbox grid system for Stylus",
     "main": "s-grid.js",
     "repository": {
         "type": "git",
