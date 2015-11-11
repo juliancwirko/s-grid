@@ -5,7 +5,8 @@ sGrid is a Flexbox grid system built with Stylus CSS preprocessor. It is prepare
 It has many integrations like Meteor, Grund and React.
 
 - More complex documentation: [http://stylusgrid.com](http://stylusgrid.com)
-- Blog post about it: [http://julian.io/s-grid-working-with-flexible-box-layouts/](http://julian.io/s-grid-working-with-flexible-box-layouts/)
+- Blog post: [sGrid - Working with Flexible Box layouts](http://julian.io/s-grid-working-with-flexible-box-layouts/)
+- Blog post: [My workflow with the Stylus and Flexbox grid system](https://medium.com/@juliancwirko/my-workflow-with-the-stylus-and-flexbox-grid-system-5f4f50ac3f33)
 
 ## Instalation
 
@@ -18,12 +19,13 @@ This is a standard Npm package so you can use it standalone, but you can also us
 - [React Boilerplate](http://stylusgrid.com/react.html)
 - [Grunt Boilerplate](http://stylusgrid.com/grunt.html)
 
-You should use it with Autoprefixer [https://github.com/jenius/autoprefixer-stylus](https://github.com/jenius/autoprefixer-stylus) Package for Meteor.js is bundled with it. It is also configured in Grunt and React boilerplates.
+You should use it with Autoprefixer [https://github.com/jenius/autoprefixer-stylus](https://github.com/jenius/autoprefixer-stylus) Package for Meteor is bundled with it. It is also configured in Grunt and React boilerplates.
+
+You'll find more complex documentation and examples here: [http://stylusgrid.com/](http://stylusgrid.com).
 
 ### Simple examples
-(More complex documentation: [http://stylusgrid.com/](http://stylusgrid.com))
 
-#### With only functions
+#### With only sGrid functions
 
 **Stylus code**:
 ```css
@@ -49,7 +51,7 @@ section
 </section>
 ```
 
-#### With only helper classes
+#### You can achieve the same effect with helper classes
 
 **HTML code**:
 ```
@@ -64,7 +66,7 @@ section
 
 ### Overwrite settings
 
-You can overwrite the settings (from s-grid-settings.styl file), just place your settings after `s-grid-settings` import. Do something like this:
+You can overwrite the settings (from `s-grid-settings.styl` file), just place your settings after `s-grid-settings` import. Do something like this:
 
 ```bash
 
@@ -107,11 +109,16 @@ breakpoints = {                // media queries breakpoints
 * CSS tricks: [http://css-tricks.com/snippets/css/a-guide-to-flexbox/](http://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 * Foundation for Apps grid [http://foundation.zurb.com/apps/docs/#!/grid](http://foundation.zurb.com/apps/docs/#!/grid)
 
+Let me know if something is wrong with sGrid, its website or React, Grunt boilerplates. I'm sure that there is much more to do with it.
+
 ### License
 
 MIT
 
 ### Changelog
+
+#### v1.1.2
+- helper classes fix
 
 #### v1.1.1
 - docs update
