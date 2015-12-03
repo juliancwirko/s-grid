@@ -7,6 +7,7 @@ It has many integrations like Meteor, Grund and React.
 - More complex documentation: [http://stylusgrid.com](http://stylusgrid.com)
 - Blog post: [sGrid - Working with Flexible Box layouts](http://julian.io/s-grid-working-with-flexible-box-layouts/)
 - Blog post: [My workflow with the Stylus and Flexbox grid system](https://medium.com/@juliancwirko/my-workflow-with-the-stylus-and-flexbox-grid-system-5f4f50ac3f33)
+- Article on Sitepoint.com: [Introducing sGrid: A Stylus-based Flexbox Grid System](http://www.sitepoint.com/introducing-sgrid-a-stylus-based-flexbox-grid-system/)
 
 ## Instalation
 
