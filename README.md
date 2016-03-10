@@ -112,6 +112,11 @@ breakpoints = {                // media queries breakpoints
 
 Let me know if something is wrong with sGrid, its website or React, Grunt boilerplates. I'm sure that there is much more to do with it.
 
+### Known problems
+
+- In IE and probably also in Edge in many cases you should read this: [https://github.com/philipwalton/flexbugs](https://github.com/philipwalton/flexbugs)
+- In IE 11 there is for sure a bug described here: [https://github.com/philipwalton/flexbugs#7-flex-basis-doesnt-account-for-box-sizingborder-box](https://github.com/philipwalton/flexbugs#7-flex-basis-doesnt-account-for-box-sizingborder-box) you can solve it by providing another content wrapper as it is described in 'Workaround' point 2
+
 ### License
 
 MIT
