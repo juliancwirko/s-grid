@@ -47,7 +47,7 @@ cell(i = 1, cols = columns, align = '', g = gutter)
 cell-offset(i = 1, cols = columns, g = gutter)
     margin-left: s('calc(100% * %s + (%s / 2))', i / cols, rem-calc(g)) !important
 
-center(value, pad = auto)
+center(value, pad = null)
   margin-left auto
   margin-right auto
   width 100%
@@ -56,13 +56,16 @@ center(value, pad = auto)
     max-width unit(value, u)
   else
     max-width rem-calc(value)
-  p = unit(pad)
-  if (p is 'rem' or p is '%')
-    padding-left  unit(pad, p)
-    padding-right  unit(pad, p)
+  if (pad is null)
+    return
   else
-    padding-left rem-calc(pad)
-    padding-right rem-calc(pad)
+    p = unit(pad)
+    if (p is 'rem' or p is '%')
+      padding-left  unit(pad, p)
+      padding-right  unit(pad, p)
+    else
+      padding-left rem-calc(pad)
+      padding-right rem-calc(pad)
 
 stack()
     cell(1, 1)
