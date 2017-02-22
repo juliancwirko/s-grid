@@ -34,7 +34,7 @@ grid(direction = 'row', cells-align = 'top', justify = '')
 
 cell(i = 1, cols = columns, align = '', g = gutter)
     flex-basis: s('calc(100% * %s - %s)', i / cols, rem-calc(g))
-    min-width 0 // FF adjustment fo rresponsive images
+    min-width 0 // FF adjustment for responsive images
     if g is not 0
         margin: rem-calc(g / 2)
     if align is 'top'
