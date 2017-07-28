@@ -33,7 +33,10 @@ grid(direction = 'row', cells-align = 'top', justify = '')
         justify-content flex-end
 
 cell(i = 1, cols = columns, align = '', g = gutter)
-    flex-basis: s('calc(100% * %s - %s)', i / cols, rem-calc(g))
+    if g is not 0
+        flex-basis: s('calc(100% * %s - %s)', i / cols, rem-calc(g))
+    else
+        flex-basis: s('calc(100% * %s)', i / cols)
     min-width 0 // FF adjustment for responsive images
     if g is not 0
         margin: rem-calc(g / 2)
@@ -45,7 +48,10 @@ cell(i = 1, cols = columns, align = '', g = gutter)
         align-self center
 
 cell-offset(i = 1, cols = columns, g = gutter)
-    margin-left: s('calc(100% * %s + (%s / 2))', i / cols, rem-calc(g)) !important
+    if g is not 0
+        margin-left: s('calc(100% * %s + (%s / 2))', i / cols, rem-calc(g)) !important
+    else
+        margin-left: s('calc(100% * %s)', i / cols) !important
 
 center(value, pad = null)
     margin-left auto

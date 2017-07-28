@@ -123,6 +123,9 @@ MIT
 
 ### Changelog
 
+#### v1.2.1
+- fix for 0 gutter when stylus `--compress` flag is used - see issue [#10](https://github.com/juliancwirko/s-grid/issues/10) ... removed `0rem` value
+
 #### v1.2.0
 - center(width, padding) improvements - thanks to [@Splendorr](https://github.com/Splendorr). New use cases: center(1200px, 15px) ; center(80%, 5%)
 
